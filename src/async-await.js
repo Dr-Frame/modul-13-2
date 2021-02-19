@@ -1,29 +1,29 @@
-/*
- * Асинхронные функции возвращают промис
- */
+// Асинхронные функции возвращают промис
 
-// const getFruit = async (name) => {
-//   const fruits = {
-//     apple: "🍎",
-//     peach: "🍑",
-//     grapes: "🍇",
-//   };
+const getFruit = (name) => {
+  const fruits = {
+    apple: "🍎",
+    peach: "🍑",
+    grapes: "🍇",
+  };
 
-//   return fruits[name];
-// };
+  return fruits[name];
+};
 
-// getFruit("apple").then((fruit) => console.log(fruit));
+console.log(getFruit("apple"));
+
+//getFruit("apple").then((fruit) => console.log(fruit));
 /*
  * Избегаем promise hell и чейнинг с ошибкой паралельного выполнения
  */
 
-const makePromiseSmothie = () => {
+/* const makePromiseSmothie = () => {
   return getFruit("apple").then((apple) => {
     return getFruit("peach").then((peach) => {
       return [apple, peach];
     });
   });
-};
+}; */
 
 // makePromiseSmothie().then((smothie) => console.log(smothie));
 
@@ -40,7 +40,7 @@ const makePromiseSmothie = () => {
  * Исправляем ошибку паралельного исполнения
  */
 
-const delay = (ms) => {
+/* const delay = (ms) => {
   return new Promise((resolve) => setTimeout(() => resolve(""), ms));
 };
 
@@ -54,7 +54,7 @@ const getFruit = async (name) => {
   await delay(1000);
 
   return fruits[name];
-};
+}; */
 
 // const makeAsyncSmothie = async () => {
 //   console.time("время на резолв промисов");
@@ -76,7 +76,7 @@ const getFruit = async (name) => {
  * Обработка ошибок
  */
 
-const makeAsyncSmothie = async () => {
+/* const makeAsyncSmothie = async () => {
   try {
     const apple = getFruit("apple");
     const peach = getFruit("peach");
@@ -95,3 +95,4 @@ const makeAsyncSmothie = async () => {
 makeAsyncSmothie()
   .then((smothie) => console.log(smothie))
   .catch((error) => console.log(error));
+ */
